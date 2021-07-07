@@ -1,0 +1,518 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Foodsnest</title>
+    <style>
+        body {
+            /* overflow-x: hidden; */
+            /* overflow-x: hidden;
+            overflow-y: hidden; */
+            /* padding: 10px; */
+            width: 100%;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: darkolivegreen;
+
+            text-align: center;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip1 {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip1 .tooltiptext1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tooltip1:hover .tooltiptext1 {
+            visibility: visible;
+        }
+
+        .form-control:focus {
+            background-color: black;
+        }
+
+        .mySidenav {
+            width: 360px;
+        }
+
+        .reachus {
+            background-color: black;
+            color: #fff;
+        }
+
+        .box {
+            cursor: pointer;
+            float: left;
+            position: relative;
+            width: 100%;
+            padding: 32px;
+            font-size: 13px;
+            height: 150px;
+            margin: 5px;
+            background-color: #2b2b2b;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box:hover {
+            background-color: black;
+            color: #fff;
+            -webkit-transform: scale(2, 2);
+            -moz-transform: scale(2, 2);
+            transform: scale(1.3);
+            z-index: 9999;
+            transition: 0.3s;
+        }
+
+        .box1 {
+            cursor: pointer;
+            float: left;
+            position: relative;
+            width: 100%;
+            padding: 32px;
+            font-size: 13px;
+            height: 150px;
+            margin: 5px;
+            background-color: #2b2b2b;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box1:hover {
+            background-color: black;
+            color: #fff;
+            -webkit-transform: scale(2, 2);
+            -moz-transform: scale(2, 2);
+            transform: scale(1.3);
+            /* z-index:; */
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body class="body_wrap">
+    <div class="row p-2 m-2">
+        <div class="col-md-1">
+            <span style="font-size:45px;cursor:pointer;margin: 4px;" onclick="openNav()">
+                <div id="menu_button">
+                    <input type="checkbox" id="menu_checkbox">
+                    <label for="menu_checkbox" id="menu_label">
+                        <div id="menu_text_bar"></div>
+                    </label>
+                </div>
+            </span>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times"
+                        aria-hidden="true"></i></a>
+                <a href="index.html">HOME</a>
+                <a href="whoweare.html">WHO WE ARE</a>
+                <a href="whatwedo.html">WHAT WE DO</a>
+                <a href="rdc.html">
+                    <div class="tooltip">R.&D.C
+                        <span class="tooltiptext">Retail & Distributor Consulting</span>
+                    </div>
+                </a>
+                <a href="bcm.html">
+                    <div class="tooltip1">B.C&M.C
+                        <span class="tooltiptext1">Brand Creation & Manufacturing</span>
+                    </div>
+                </a>
+                <a href="#">TEAM</a>
+                <a href="reachus.html">REACH US</a>
+            </div>
+        </div>
+        <div class="col-md-8 d-flex align-items-end whoweare_tagline">
+            <div class="">
+                <span class="rdc_head" style="">BRAND
+                    CREATION & MANUFACTURING</span>
+                <hr style="border-top: 3px solid black;
+                            width: 54%;
+                            margin-left: 0px;
+                            margin-top: 5px;">
+            </div>
+        </div>
+        <div class="col-md-3" style="display: flex;
+            justify-content: flex-end;">
+            <div class="d-flex justify-content-end">
+                <img src="assets/Home-assets/FoodsNest-new-logo.png" alt="" class="logo_fd">
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+    <div class="p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row bcm_margin">
+                    <div class="col-md-12">
+                        <div class="row justify-content-center">
+                            <div class="text-center">
+                                <span class="bcm_headings">Brand Creation</span>
+                                <hr style="border-top: 3px solid black; width: 45%;margin-top: 4px;">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-10">
+                                <div class="row justify-content-center mt-2" style="color: #fff;">
+                                    <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/ideate.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">IDEATE</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                        <div class="flip-card">
+                                            <div class="">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/ideate.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">IDEATE</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/formulate.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">FORMULATE</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/formulate.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">FORMULATE</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets//research.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">RESEARCH</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="strt">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets//research.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">RESEARCH</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/DESIGN.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">DESIGN</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="strt">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/DESIGN.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">DESIGN</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="text-center">
+                                <span class="bcm_headings">Manufacturing</span>
+                                <hr style="border-top: 3px solid black; width: 45%;margin-top: 4px;">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-md-10 col-lg-8">
+                                <div class="row justify-content-center mt-2" style="color: #fff;">
+                                    <div class="col-6 col-md-4 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/SET UP.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">SET UP</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/SET UP.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">SET UP</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/co-pack.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">CO-PACK</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/CO-PACK.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">CO-PACK</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 d-flex justify-content-center">
+                                        <!-- <div class="flip-card">
+                                                    <div class="flip-card-inner">
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/Brand Creation & Manufacturing-assets/sourcing.png"
+                                                                alt="" class=" mb-1"><br>
+                                                            <div class="rdc_label">
+                                                                <span class="bcm_label">SOURCING</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flip-card-back" style="padding: 5px;overflow: hidden;">
+                                                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                                                aliqua. </span>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                        <div class="flip-card">
+                                            <div class="strt">
+                                                <div class="flip-card-s" style="text-align: center;">
+                                                    <img src="assets/Brand Creation & Manufacturing-assets/sourcing.png"
+                                                        alt="" class=" mb-1"><br>
+                                                    <div class="rdc_label">
+                                                        <span class="bcm_label">SOURCING</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="text-center">
+                                <button class="know_more_btn">KNOW MORE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class=" d-flex justify-content-center align-items-center flex-lg-column flex-md-column" style="    position: absolute;
+                right: 0;
+                padding: 10px;
+                top: 47%;">
+            <div class="d-flex flex-lg-column align-items-center social_icons" style="font-size: 22px;">
+                <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </div>
+        </div> -->
+    </div>
+    <div class="footer_sec container-fluid" style="position: fixed;bottom: 0;">
+        <div class="row p-1 justify-content-center">
+            <div class="col-md-7">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        &copy; 2021 Foodsnest All Rights Received
+                    </div>
+                    <div class="footer_links">
+                        <a href="">Privacy </a> | <a href="">Terms</a> | <a href="">Sitemap</a> | <a href="">Help</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <p>
+    </p>
+    <p></p>
+    <p></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> -->
+    <!-- <div class="footer_sec container-fluid" style="background-color: black;color: darkolivegreen;">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        © 2021 foodsnest all rights received
+                    </div>
+                    <div>
+                        Privacy | Terms | Help | Sitemap
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <script>
+        function openNav() {
+            // document.getElementById("mySidenav").style.width = "386";
+            document.getElementById("mySidenav").style.width = "386";
+        }
+        function closeNav() {
+            // document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+</body>
+
+</html>

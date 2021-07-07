@@ -1,0 +1,350 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Foodsnest</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            /* padding: 10px; */
+            /* width: 100% ; */
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip1 {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip1 .tooltiptext1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tooltip1:hover .tooltiptext1 {
+            visibility: visible;
+        }
+
+        .form-control:focus {
+            background-color: black;
+        }
+
+        .mySidenav {
+            width: 360px;
+        }
+
+        .reachus {
+            background-color: black;
+            color: #fff;
+        }
+
+        .footer_links a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="body_wrap">
+    <div>
+        <div class="row p-2 m-2">
+            <div class="col-md-1">
+                <span style="font-size:45px;cursor:pointer;margin: 4px;" onclick="openNav()">
+                    <div id="menu_button">
+                        <input type="checkbox" id="menu_checkbox">
+                        <label for="menu_checkbox" id="menu_label">
+                            <div id="menu_text_bar"></div>
+                        </label>
+                    </div>
+                </span>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times"
+                            aria-hidden="true"></i></a>
+                    <a href="index.html">HOME</a>
+                    <a href="whoweare.html">WHO WE ARE</a>
+                    <a href="whatwedo.html">WHAT WE DO</a>
+                    <a href="rdc.html">
+                        <div class="tooltip">R.&D.C
+                            <span class="tooltiptext">Retail & Distributor Consulting</span>
+                        </div>
+                    </a>
+                    <a href="bcm.html">
+                        <div class="tooltip1">B.C&M.C
+                            <span class="tooltiptext1">Brand Creation & Manufacturing</span>
+                        </div>
+                    </a>
+                    <a href="#">TEAM</a>
+                    <a href="reachus.html">REACH US</a>
+                </div>
+            </div>
+            <div class="col-md-8 d-flex align-items-center wtwedotagline">
+                <div class="order-lg-last">
+                    <span class="" style="font-size: 29px;font-weight:700;font-family: newfont;">WHAT WE DO</span>
+                    <hr style="border-top: 3px solid black;
+                    width: 54%;
+                    margin-left: 0px;
+                    margin-top: 5px;">
+                </div>
+            </div>
+            <div class="col-md-3 " style="display: flex;
+            justify-content: flex-end;">
+                <div class="d-flex justify-content-end order-lg-first">
+                    <img src="assets/Home-assets/FoodsNest-new-logo.png" alt="" class="logo_fd">
+                </div>
+            </div>
+            <!-- <div class="d-flex justify-content-center align-items-center"
+                style="position: absolute;right: 0;padding: 10px;position: absolute;right: 0;top: 47%;">
+                <div class="d-flex flex-lg-column align-items-center social_icons" style="font-size: 22px;">
+                    <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </div>
+            </div> -->
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-8 wtwedopara" style="text-align: justify;">
+                <span style="font-family: newfont1" class="whoweare_font">We understand how important your brand is for
+                    you and we share the
+                    same importance too, hence we follow a very straight forward and professional approach and walk the
+                    mile with you.</span>
+                <br>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <div class="p-3 whatwedo" style="">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 col-lg-6 col-xl-5">
+                                            <div id="boxcontainer">
+                                                <div class="box1">
+                                                    <div class="text-center">
+                                                        <span class="card_top_headings">
+                                                            <b>Storage,Logistics & Distribution</b>
+                                                        </span>
+                                                        <br>
+                                                        <div class="pt-2">
+                                                            <span class="block_text">Foodsnest has partnered with world
+                                                                class
+                                                                warehousing
+                                                                companies in various cities for its clients.It has also
+                                                                partnered with the best fright forwarders and agents
+                                                                across the network to handle any means of logistics
+                                                                including ,Air,SEA and land. </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-5">
+                                            <div id="boxcontainer">
+                                                <div class="box2">
+                                                    <div class="text-center">
+                                                        <span class="card_top_headings">
+                                                            <b>Branding Solution</b>
+                                                        </span>
+                                                        <br>
+                                                        <div class="pt-2">
+                                                            <span class="block_text">Foodsnest follows a different
+                                                                approach in branding,
+                                                                first it tries to understand what is the need of the
+                                                                hour
+                                                                and what does an end consumer want.
+                                                                It follows the basic Indian mantra " Jo Diktha Hain woh
+                                                                Biktha hain " </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 col-lg-6 col-xl-5">
+                                            <div id="boxcontainer">
+                                                <div class="box3">
+                                                    <div class="text-center">
+                                                        <span class="card_top_headings">
+                                                            <b>Sales Channel</b>
+                                                        </span>
+                                                        <br>
+                                                        <div class="pt-2">
+                                                            <span class="block_text">We take the pride when it comes to
+                                                                sales as we all
+                                                                know " everyone has some thing to sell "
+                                                                We help companies to strategize and create the entire
+                                                                sales channel .</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-5">
+                                            <div id="boxcontainer">
+                                                <div class="box4">
+                                                    <div class="text-center">
+                                                        <span class="card_top_headings">
+                                                            <b>Market Analysis</b>
+                                                        </span>
+                                                        <br>
+                                                        <div class="pt-2">
+                                                            <span class="block_text">A specialized approach towards
+                                                                analyzing and helping
+                                                                the brands to understand what the brand has to offer to
+                                                                its consumers to achieve its goals.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+
+                            </div>
+                            <div class="overlap_div">
+                                <div id="boxcontainer1">
+                                    <div class="box5">
+                                        <div class="text-center">
+                                            <span class="card_top_headings">
+                                                <b>Store Activation and Launch Campaign</b>
+                                            </span>
+                                            <br>
+                                            <div class="pt-2">
+                                                <span class="block_text">Whether it's Brick&Motor or ecommerce every
+                                                    company wants its brand to be positioned.
+                                                    We design digital campaigns and store level campaigns that suits and
+                                                    fullfills the demand for all. </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class=" d-flex justify-content-center align-items-center flex-lg-column flex-md-column" style="    position: absolute;
+            right: 0;
+            padding: 10px;
+            top: 47%;">
+                <div class="d-flex flex-lg-column align-items-center social_icons" style="font-size: 22px;">
+                    <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </div>
+            </div> -->
+        </div>
+        <!-- <p>
+
+        </p>
+        <p></p>
+        <p></p>
+        <br>
+        <br> -->
+        <!-- <br> -->
+        <div class="footer_sec container-fluid" style="position: fixed;bottom: 0;">
+            <div class="row p-1 justify-content-center">
+                <div class="col-md-7">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            &copy; 2021 Foodsnest All Rights Reserved
+                        </div>
+                        <div class="footer_links">
+                            <a href="">Privacy </a> | <a href="">Terms</a> |<a href="reachus.html">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="footer_sec container-fluid p-1"
+            style="background-color: black;color: darkolivegreen;bottom: 0 !important;position: fixed;">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            &copy; 2021 foodsnest all rights received
+                        </div>
+                        <div>
+                            Privacy | Terms | Help | Sitemap
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <script>
+        function openNav() {
+            // document.getElementById("mySidenav").style.width = "386";
+            document.getElementById("mySidenav").style.width = "385";
+        }
+
+        function closeNav() {
+            // document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("mySidenav").style.width = "0";
+
+        }
+    </script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+</body>
+
+</html>

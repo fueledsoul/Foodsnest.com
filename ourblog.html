@@ -1,0 +1,651 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+    <title>Foodsnest</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            /* padding: 10px; */
+            width: 100%;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip1 {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip1 .tooltiptext1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tooltip1:hover .tooltiptext1 {
+            visibility: visible;
+        }
+
+        .form-control:focus {
+            background-color: black;
+        }
+
+        .mySidenav {
+            width: 360px;
+        }
+
+        .reachus {
+            /* background-color: black; */
+            color: #fff;
+        }
+
+        .gallery {
+            background: transparent;
+            width: 100%;
+        }
+
+        .gallery-cell {
+            width: 100%;
+            height: 200px;
+            margin-right: 10px;
+            background: #8C8;
+            counter-increment: gallery-cell;
+        }
+
+        /* cell number */
+        .gallery-cell:before {
+            display: block;
+            text-align: center;
+            content: counter(gallery-cell);
+            line-height: 200px;
+            font-size: 80px;
+            color: white;
+        }
+
+
+        /* big buttons, no circle */
+        .flickity-prev-next-button {
+            width: 100px;
+            height: 100px;
+            background: transparent;
+        }
+
+        /* arrow color */
+        .flickity-prev-next-button .arrow {
+            fill: white;
+        }
+
+        .flickity-prev-next-button.no-svg {
+            color: white;
+        }
+
+        .flickity-prev-next-button:hover {
+            background: transparent;
+        }
+
+        /* hide disabled button */
+        .flickity-prev-next-button:disabled {
+            display: none;
+        }
+
+        /* position dots in gallery */
+        .flickity-page-dots {
+            bottom: 0px;
+        }
+
+        /* white circles */
+        .flickity-page-dots .dot {
+            width: 12px;
+            height: 12px;
+            opacity: 1;
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        /* fill-in selected dot */
+        .flickity-page-dots .dot.is-selected {
+            background: white;
+        }
+
+        .photo-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-auto-rows: 220px;
+        }
+
+        @media screen and (min-width: 600px) {
+            .card-tall {
+                grid-row: span 2 / auto;
+            }
+
+            .card-wide {
+                grid-column: span 2 / auto;
+            }
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            flex: 25%;
+            max-width: 33.3%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+            /* filter: grayscale(1) brightness(0.5); */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s linear;
+        }
+
+        /* .column img:hover {
+            filter: grayscale(0);
+        } */
+
+        @media screen and (max-width: 800px) {
+            .column {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                flex: 100%;
+                max-width: 100%;
+            }
+
+            .column img {
+                filter: grayscale(0) brightness(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body_wrap">
+        <div class="row p-2">
+            <div class="col-md-1">
+                <span style="font-size:30px;cursor:pointer;margin: 10px;" onclick="openNav()">&#9776;</span>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="index.html">HOME</a>
+                    <a href="whoweare.html">WHO WE ARE</a>
+                    <a href="rdc.html">
+                        <div class="tooltip">R.&D.C
+                            <span class="tooltiptext">Retailer and Distributor Consulting</span>
+                        </div>
+                    </a>
+                    <a href="bcm.html">
+                        <div class="tooltip1">B.C & M.C
+                            <span class="tooltiptext1">Brand Creation and Manufacturing</span>
+                        </div>
+                    </a>
+                    <a href="#">TEAM</a>
+                    <a href="reachus.html">REACH US</a>
+                </div>
+            </div>
+            <div class="col-md-8 d-flex align-items-end">
+                <div class="">
+                    <span class="" style="font-size: 29px;font-weight:700">OUR BLOG</span>
+                    <hr style="border-top: 3px solid black;width: 15%;margin-left: 0px;margin-top: 5px;">
+                </div>
+            </div>
+            <div class="col-md-3" style="display: flex;justify-content: flex-end;">
+                <div class="d-flex justify-content-end p-2">
+                    <img src="assets/Home-assets/home-page-logo.png" alt="" width="60%">
+                </div>
+            </div>
+        </div>
+        <div class="p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row m-1 ">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>
+                                                <span class="showSingle" target="1">ALL BRANDING </span>| <span
+                                                    class="showSingle" target="2">BUSINESS </span> | <span
+                                                    class="showSingle" target="3">CLIENTS
+                                                </span> | <span class="showSingle" target="4">DESIGN </span> | <span
+                                                    class="showSingle" target="5">EVENTS </span> | <span
+                                                    class="showSingle" target="6">FEATURED
+                                                </span> | <span>ILLUSTRATION </span> | <span>INSPIRATION </span> |
+                                                <span class="showSingle" target="7">PHOTOGRAPHY </span> |
+                                                <span class="showSingle" target="8">UNAUTHORISED WORK </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="targetDiv" id="div1">
+                                        <div class="row">
+                                            <div class="column">
+                                                <img src="assets/blog-assets/blog-image-1.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b class="" style="cursor: pointer;" data-toggle="modal"
+                                                        data-target="#exampleModal">View More</b>
+                                                    <!-- <button type="button" class="btn btn-primary"
+                                                        data-toggle="modal" data-target="#exampleModal">
+                                                        Launch demo modal
+                                                    </button> -->
+                                                </div>
+                                                <div class="modal fade bd-example-modal-lg" id="exampleModal"
+                                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Java
+                                                                    Earth</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="p-2">
+                                                                            <img src="assets/blog-assets/blog-image-1.png"
+                                                                                alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span>Lorem Ipsum is simply dummy text of the
+                                                                            printing and typesetting industry. Lorem
+                                                                            Ipsum has been the industry's standard dummy
+                                                                            text ever since the 1500s, when an unknown
+                                                                            printer took a galley of type and scrambled
+                                                                            it to make a type specimen book. It has
+                                                                            survived not only five centuries, but also
+                                                                            the leap into electronic typesetting,
+                                                                            remaining essentially unchanged. It was
+                                                                            popularised in the 1960s with the release of
+                                                                            Letraset sheets containing Lorem Ipsum
+                                                                            passages, and more recently with desktop
+                                                                            publishing software like Aldus PageMaker
+                                                                            including versions of Lorem Ipsum.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+
+                                            </div>
+                                            <div class="column">
+                                                <div class="m-1">
+                                                    <div class="text-center blog1">
+                                                        <div class="pb-2">
+                                                            <p></p><br>
+                                                            <img src="assets/blog-assets/bouble-coat.png" alt=""
+                                                                style="width: 60px;">
+                                                        </div>
+                                                        <span style="color: lightgray;">
+                                                            <div class="pb-2"><b>When to consider a rebrand, part 2 of
+                                                                    5</b></div>
+                                                            <span>When done well ,a brand's identify makes it unique and
+                                                                memorable,and it communicate to the world who that brand
+                                                                is and what it stands for.But what if your brand is..
+                                                            </span><br>
+                                                            <br>
+                                                            --CEO Join leva ---
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <div class="text-center blog2">
+                                                        <div class="pb-2">
+                                                            <p></p><br>
+                                                            <img src="assets/blog-assets/bouble-coat.png" alt=""
+                                                                style="width: 60px;">
+                                                        </div>
+                                                        <span>
+                                                            <div class="pb-2"><b>When to consider a rebrand, part 2 of
+                                                                    5</b><br></div>
+                                                            <span>When done well ,a brand's identify makes it unique and
+                                                                memorable,and it communicate to the world who that brand
+                                                                is and what it stands for.But what if your brand is..
+                                                            </span><br>
+                                                            <br>
+                                                            --CEO Join leva ---
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b class="" style="cursor: pointer;" data-toggle="modal"
+                                                        data-target="#exampleModal1">View More</b>
+                                                    <div class="modal fade bd-example-modal-lg" id="exampleModal1"
+                                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Mello
+                                                                        Gold</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="p-2">
+                                                                                <img src="assets/blog-assets/blog-image-2.png"
+                                                                                    alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <span>Lorem Ipsum is simply dummy text of
+                                                                                the
+                                                                                printing and typesetting industry. Lorem
+                                                                                Ipsum has been the industry's standard
+                                                                                dummy
+                                                                                text ever since the 1500s, when an
+                                                                                unknown
+                                                                                printer took a galley of type and
+                                                                                scrambled
+                                                                                it to make a type specimen book. It has
+                                                                                survived not only five centuries, but
+                                                                                also
+                                                                                the leap into electronic typesetting,
+                                                                                remaining essentially unchanged. It was
+                                                                                popularised in the 1960s with the
+                                                                                release of
+                                                                                Letraset sheets containing Lorem Ipsum
+                                                                                passages, and more recently with desktop
+                                                                                publishing software like Aldus PageMaker
+                                                                                including versions of Lorem
+                                                                                Ipsum.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="m-1">
+                                                    <div class="text-center blog1">
+                                                        <div class="pb-2">
+                                                            <p></p><br>
+                                                            <img src="assets/blog-assets/bouble-coat.png" alt=""
+                                                                style="width: 60px;">
+                                                        </div>
+                                                        <span style="color: lightgray;">
+                                                            <div class="pb-2"><b>When to consider a rebrand, part 2 of
+                                                                    5</b></div>
+                                                            <span>When done well ,a brand's identify makes it unique and
+                                                                memorable,and it communicate to the world who that brand
+                                                                is and what it stands for.But what if your brand is..
+                                                            </span><br>
+                                                            <br>
+                                                            --CEO Join leva ---
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="mt-2">
+                                                    <div class="text-center blog2">
+                                                        <div class="pb-2">
+                                                            <p></p><br>
+                                                            <img src="assets/blog-assets/bouble-coat.png" alt=""
+                                                                style="width: 60px;">
+                                                        </div>
+                                                        <span>
+                                                            <div class="pb-2"><b>When to consider a rebrand, part 2 of
+                                                                    5</b></div>
+                                                            <span>When done well ,a brand's identify makes it unique and
+                                                                memorable,and it communicate to the world who that brand
+                                                                is and what it stands for.But what if your brand is..
+                                                            </span><br>
+                                                            <br>
+                                                            --CEO Join leva ---
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <img src="assets/blog-assets/blog-image-3.png" />
+                                                <!-- <div class="slider" data-arrows="true">
+                                                    <ul class="slides">
+                                                        <li> <img src="assets/blog-assets/4th.png" /> </li>
+                                                        <li> <img src="assets/blog-assets/blog-image-3.png" /> </li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="targetDiv" id="div2" style="display: none;">
+                                        <div class="row">
+                                            <div class="column">
+                                                <img src="assets/blog-assets/blog-image-1.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b class="" style="cursor: pointer;">View More</b>
+                                                </div>
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/4th.png" />
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b>View More</b>
+                                                </div>
+                                                <img src="assets/blog-assets/2nd.png" />
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/4th.png" />
+
+                                                <div class="slider" data-arrows="true">
+
+
+                                                    <img src="assets/blog-assets/4th.png" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="targetDiv" id="div3" style="display: none;">
+                                        <div class="row">
+                                            <div class="column">
+
+                                                <img src="assets/blog-assets/blog-image-1.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b class="" style="cursor: pointer;">View More</b>
+                                                    <img src="assets/blog-assets/blog-image-3.png" />
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/4th.png" />
+                                                <img src="assets/blog-assets/4th.png" />
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b>View More</b>
+                                                </div>
+                                                <img src="assets/blog-assets/2nd.png" />
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/4th.png" />
+                                                <img src="assets/blog-assets/blog-image-4.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="targetDiv" id="div4" style="display: none;">
+                                        <div class="row">
+                                            <div class="column">
+
+                                                <img src="assets/blog-assets/blog-image-1.png" />
+                                                <div style="font-size: 12px;">
+                                                    <span>May 2021 / Admin / Design</span>
+                                                    <p><b>Get you happy on.</b></p>
+                                                    ---- <b>View More</b>
+                                                    <img src="assets/blog-assets/blog-image-3.png" />
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <img src="assets/blog-assets/2nd.png" />
+                                                <img src="assets/blog-assets/blog-image-2.png" />
+                                            </div>
+
+                                            <div class="column">
+                                                <img src="assets/blog-assets/4th.png" />
+                                                <img src="assets/blog-assets/blog-image-4.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-1 d-flex justify-content-center align-items-center">
+                            <div class="d-flex flex-lg-column align-items-center" style="font-size: 22px;">
+                                <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                                <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                                <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                            </div>
+                        </div> -->PO01321491966684
+                    </div>
+                </div>
+            </div>
+            <div class=" d-flex justify-content-center align-items-center flex-lg-column flex-md-column" style="    position: absolute;
+            right: 0;
+            padding: 10px;
+            top: 47%;">
+                <div class="d-flex flex-lg-column align-items-center social_icons" style="font-size: 22px;">
+                    <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer_sec container-fluid p-1" style="background-color: black;color: darkolivegreen;">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            © 2021 Foodsnest All rights received
+                        </div>
+                        <div class="footer_links">
+                            <a href=""> Privacy</a> | <a href=""> Terms</a> | <a href=""> Help </a> | <a href="">
+                                Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "386";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        jQuery(function () {
+            jQuery('.showSingle').click(function () {
+                jQuery('.targetDiv').hide();
+                jQuery('#div' + $(this).attr('target')).show();
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="js/flickity.min.js"></script>
+</body>
+
+</html>

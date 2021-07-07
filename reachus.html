@@ -1,0 +1,553 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Foodsnest</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            /* padding: 10px; */
+        }
+
+        /* .reachus .sidenav a:after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            opacity: 0;
+            background-color: #000;
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+        } */
+
+        .reachus .sidenav a:hover:after {
+            width: 50%;
+            opacity: 1;
+        }
+
+        .sidenav a:hover {
+            /* color: #f1f1f1; */
+            color: #000;
+            /* border-bottom: 1px solid; */
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: none !important;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip1 {
+            position: relative;
+            display: inline-block;
+            border-bottom: none !important;
+        }
+
+        .tooltip1 .tooltiptext1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tooltip1:hover .tooltiptext1 {
+            visibility: visible;
+        }
+
+        .form-control:focus {
+            background-color: black;
+        }
+
+        .mySidenav {
+            width: 360px;
+        }
+
+        .reachus {
+            /* background-color: black; */
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
+                url('assets/Home-assets/background.jpg');
+            color: #fff;
+            height: 100vh;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: black;
+        }
+
+        .tooltip1 .tooltiptext1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            font-family: newfont;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 19px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'newfont1';
+        }
+
+        .tooltip1:hover .tooltiptext1 {
+            visibility: visible;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0px 0;
+            position: absolute;
+            z-index: 1;
+            top: 19px;
+            height: 50px;
+            font-size: 12px;
+            left: 105%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'newfont1';
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        #menu_button {
+            width: 39px;
+            overflow: hidden;
+        }
+
+        #menu_checkbox {
+            display: none;
+        }
+
+        #menu_label {
+            position: relative;
+            display: block;
+            height: 29px;
+            cursor: pointer;
+        }
+
+        #menu_label:before,
+        #menu_label:after,
+        #menu_text_bar {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+        }
+
+        #menu_label:before,
+        #menu_label:after {
+            content: '';
+            transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left;
+        }
+
+        #menu_label:before {
+            top: 0;
+        }
+
+        #menu_label:after {
+            top: 12px;
+        }
+
+        #menu_text_bar {
+            top: 24px;
+        }
+
+        #menu_text_bar:before {
+            content: 'MENU';
+            position: absolute;
+            top: 11px;
+            right: 0;
+            left: 0;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        #menu_checkbox:hover+#menu_label:before {
+            left: -39px;
+        }
+
+        #menu_checkbox:hover+#menu_label:after {
+            left: 39px;
+        }
+
+        #menu_checkbox:hover+#menu_label #menu_text_bar:before {
+            animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeWhileMovingUp 0.8s ease 0.2s forwards, shakeWhileMovingDown 0.2s ease 0.8s forwards;
+        }
+
+        @keyframes moveUpThenDown {
+            0% {
+                top: 0;
+            }
+
+            50% {
+                top: -27px;
+            }
+
+            100% {
+                top: -16px;
+            }
+        }
+
+        @keyframes shakeWhileMovingUp {
+            0% {
+                transform: rotateZ(0);
+            }
+
+            25% {
+                transform: rotateZ(-10deg);
+            }
+
+            50% {
+                transform: rotateZ(0deg);
+            }
+
+            75% {
+                transform: rotateZ(10deg);
+            }
+
+            100% {
+                transform: rotateZ(0);
+            }
+        }
+
+        @keyframes shakeWhileMovingDown {
+            0% {
+                transform: rotateZ(0);
+            }
+
+            80% {
+                transform: rotateZ(3deg);
+            }
+
+            90% {
+                transform: rotateZ(-3deg);
+            }
+
+            100% {
+                transform: rotateZ(0);
+            }
+        }
+
+        .footer_links a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reachus">
+        <div class="row p-2">
+            <div class="col-md-1 pl-5 pt-3">
+                <span style="font-size:45px;cursor:pointer;margin: 4px;" onclick="openNav()">
+                    <div id="menu_button">
+                        <input type="checkbox" id="menu_checkbox">
+                        <label for="menu_checkbox" id="menu_label">
+                            <div id="menu_text_bar"></div>
+                        </label>
+                    </div>
+                </span>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times"
+                            aria-hidden="true"></i></a>
+                    <a href="index.html">HOME</a>
+                    <a href="whoweare.html">WHO WE ARE</a>
+                    <a href="whatwedo.html">WHAT WE DO</a>
+                    <a href="rdc.html">
+                        <div class="tooltip">R.&D.C
+                            <span class="tooltiptext">Retail & Distributor Consulting</span>
+                        </div>
+                    </a>
+                    <a href="bcm.html">
+                        <div class="tooltip1">B.C&M.C
+                            <span class="tooltiptext1">Brand Creation & Manufacturing</span>
+                        </div>
+                    </a>
+                    <a href="#">TEAM</a>
+                    <a href="reachus.html">REACH US</a>
+                </div>
+            </div>
+            <div class="col-md-8 d-flex align-items-end whoweare_tagline">
+                <div class=" rch_us">
+                    <!-- <span class="" style="font-size: 39px;font-weight:700;font-family: newfont;line-height:2px">REACH
+                        US</span>
+                    <hr style=" border-top: 1px solid #fff;
+                                        width: 50%;
+                                        margin-left: 0px;
+                                        margin-top: 0px;"> -->
+                    <span class="" style="font-size: 39px;font-weight:700;font-family: newfont;">REACH US</span>
+                    <hr style="border-top: 3px solid #fff;
+                                        width: 50%;
+                                        margin-left: 0px;
+                                        margin-top: 0px;">
+                </div>
+            </div>
+            <div class="col-md-3" style="display: flex;
+                        justify-content: flex-end;">
+                <div class="d-flex justify-content-end">
+                    <img src="assets/Reach us-assets/FoodsNest-new-logo-white.png" class="logo_fd">
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <!-- <div class="col-md-8 d-flex align-items-end">
+                <div class="mt-5">
+                    <span class="" style="font-size: 39px;font-weight:700;font-family: newfont;">REACH US</span>
+                    <hr style=" border-top: 1px solid #fff;
+                    width: 50%;
+                    margin-left: 0px;
+                    margin-top: 0px;">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex justify-content-end">
+                    <img src="assets/Reach us-assets/FoodsNest-new-logo-white.png" alt="" width="60%">
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="d-flex justify-content-center align-items-center"
+            style="position: absolute;right: 0;padding: 10px;position: absolute;right: 0;top: 47%;">
+            <div class="d-flex flex-lg-column align-items-center social_icons" style="font-size: 22px;">
+                <i class="fa fa-instagram pb-2" aria-hidden="true"></i>
+                <i class="fa fa-linkedin pb-2" aria-hidden="true"></i>
+                <i class="fa fa-twitter pb-2" aria-hidden="true"></i>
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </div>
+        </div> -->
+        <div class="pt-0">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row m-3">
+                        <div class="col-md-12">
+                            <div class="row justify-content-center mb-4">
+                                <div class="text-center">
+                                    <span class="reach_us_head">Our
+                                        Business
+                                        Service
+                                        Locations</span>
+                                    <hr style="border-top: 1px solid #fff;width: 8%;margin-top: 4px;">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-4 res_div">
+                                <div class="col-md-12 col-lg-8">
+                                    <div class="row justify-content-center mt-2" style="color: #fff;">
+                                        <div class="col-6 col-md-3 d-flex justify-content-center">
+                                            <div class="m-2 text-center country_card">
+                                                <img src="assets/Reach us-assets/UAE.png" alt=""
+                                                    class="country_card_logo"><br>
+                                                <span class="reachus_headings">UAE</span><br>
+                                                <hr style="border-bottom: 1px solid #fff;
+                                                width: 40%;
+                                                margin: auto;    margin-bottom: 10px;">
+                                                <p class="country_card_text">BRAND PARTNERSHIP AND RETAILER PARTNERSHIP
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex justify-content-center">
+                                            <div class="m-2 text-center country_card">
+                                                <img src="assets/Reach us-assets/usa.png" alt=""
+                                                    class="country_card_logo"><br>
+                                                <span class="reachus_headings">USA</span><br>
+                                                <hr style="border-bottom: 1px solid #fff;
+                                                width: 40%;
+                                                margin: auto;    margin-bottom: 10px;">
+                                                <p class="country_card_text">BRAND PARTNERSHIP AND PRODUCT DEVELOPMENT
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex justify-content-center">
+                                            <div class="m-2 text-center country_card country_res">
+                                                <img src="assets/Reach us-assets/INDIA.png" alt=""
+                                                    class="country_card_logo"><br>
+                                                <span class="reachus_headings">INDIA </span><br>
+                                                <hr style="border-bottom: 1px solid #fff;
+                                                width: 40%;
+                                                margin: auto;    margin-bottom: 10px;">
+                                                <p class="country_card_text">BRAND PARTNERSHIP,RETAIL PARTNERSHIP
+                                                    ,PRODUCT DEVELOPMENT</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex justify-content-center country_res">
+                                            <div class="m-2 text-center country_card">
+                                                <img src="assets/Reach us-assets/europe.png" alt=""
+                                                    class="country_card_logo"><br>
+                                                <span class="reachus_headings">EUROPE </span><br>
+                                                <hr style="border-bottom: 1px solid #fff;
+                                                width: 40%;
+                                                margin: auto;    margin-bottom: 10px;">
+                                                <p class="country_card_text">BRAND PARTNERSHIP AND PRODUCT DEVELOPMENT
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="text-center">
+                                <div class="mb-2 mt-2">
+                                    <input type="text" class="reachus_text_inputs" placeholder="Your name"> <input
+                                        type="text" class="reachus_text_inputs" placeholder="Your Email">
+                                </div>
+                                <div class="mb-2 mt-2">
+                                    <input type="text" class="reachus_text_inputs" placeholder="Phone number "> <input
+                                        type="text" class="reachus_text_inputs" placeholder="Your Company">
+                                </div>
+                                <div class="mb-2 mt-2">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-5">
+                                            <textarea type="text" name="msg" class="form-control formele"
+                                                rows="4">Your message</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="send_btn mt-3">SEND MESSAGE
+                                    </button>
+                                </div>
+                            </div> -->
+                            <form action="https://formspree.io/f/mqkwlozz" method="POST">
+                                <div class="row justify-content-center" style="margin-top: 50px;">
+                                    <div class="col-md-6 text-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6 col-lg-4 d-flex ">
+                                                <input type="text" name="name" class="reachus_text_inputs"
+                                                    placeholder="Your name">
+
+                                            </div>
+                                            <div class="col-md-6 col-lg-4">
+                                                <input type="text" name="phoneno" class="reachus_text_inputs mrgn"
+                                                    placeholder="Phone number ">
+
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6 col-lg-4 mt-2 d-flex">
+                                                <input type="text" class="reachus_text_inputs" name="_replyto"
+                                                    placeholder="Your Email">
+
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 mt-2">
+                                                <input type="text" name="company_name" class="reachus_text_inputs"
+                                                    placeholder="Your Company">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-12 col-lg-8 mt-2">
+                                                <textarea type="text" name="message"
+                                                    class="form-control formele reachus_text_inputs"
+                                                    rows="4">Your Message</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="text-center m-3">
+                                            <button type="submit" class="reachus_btn">SEND MESSAGE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_sec container-fluid"
+            style="background-color: black;color: darkolivegreen;position:fixed;bottom:0;">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="d-flex justify-content-between">
+                        <div style="color: #5b6069;">
+                            &copy; 2021 Foodsnest all rights received
+                        </div>
+                        <div class="footer_links">
+                            <a href=""> Privacy</a> | <a href=""> Terms</a> | <a href="reachus.html"> Help </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                // document.getElementById("mySidenav").style.width = "386";
+                document.getElementById("mySidenav").style.width = "410"
+            }
+
+            function closeNav() {
+                // document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidenav").style.width = "0";
+
+            }
+        </script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+</body>
+
+</html>
